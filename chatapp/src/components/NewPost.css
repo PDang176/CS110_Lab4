@@ -46,9 +46,14 @@
 
 .Submit {
     float: right;
-    background-color: #3498DB;
+    background-color: #4169E1;
     color: white;
     border-radius: 2px;
     border: 1px solid grey;
     padding: 7px 12px;
+}
+
+.Submit:hover {
+    background-color: #0000FF;
+    cursor: pointer;
 }
