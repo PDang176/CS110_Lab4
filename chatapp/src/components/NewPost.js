@@ -1,18 +1,48 @@
-import './NewPost.css';
+import "./NewPost.css";
+import PropTypes from "prop-types";
+import { useState } from "react";
 
-function NewPost(){
+const NewPost = ({ createPost, depth}) => {
+  const [name, setName] = useState("");
+  const [post, setPost] = useState("");
+
   const submitPost = () => {
-    this.props.parentCallback('hi');
-  }
+    // Clears post data from view
+    setName("");
+    setPost("");
+
+    // Sends post data up to App.js
+    createPost(name, post, depth);
+  };
 
   return (
-    <div className='NewPost'>
-      <h1 className='Header'>New Post</h1>
-      <input className='Name' type='text' placeholder='Name...'/>
-      <textarea className='Post' placeholder='Write a new post...'/>
-      <button className='Submit' onClick={submitPost}>Submit</button>
+    <div className="NewPost">
+      <input
+        className="NameInput"
+        type="text"
+        placeholder="Name..."
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <textarea
+        className="PostInput"
+        placeholder="Write a new post..."
+        value={post}
+        onChange={(e) => setPost(e.target.value)}
+      />
+      <button
+        className="SubmitBtn"
+        onClick={submitPost}
+        disabled={!name || !post}
+      >
+        Submit
+      </button>
     </div>
   );
-}
+};
+
+NewPost.propTypes = {
+  createPost: PropTypes.func.isRequired,
+};
 
 export default NewPost;

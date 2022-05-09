@@ -1,0 +1,24 @@
+.Vote {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 0;
+  width: 30px;
+  text-align: center;
+}
+
+.VoteBtn {
+  background-color: white;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.VoteBtn:hover {
+  cursor: pointer;
+}
+
+.Count {
+  margin: 0;
+  font-weight: bold;
+}
